@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Source
+from .models import Post
 
-admin.site.register(Source)
+admin.site.register(Post)
 # Register your models here.

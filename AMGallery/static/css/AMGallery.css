@@ -1,0 +1,62 @@
+h1 a {
+    color:#000000 ;
+font-family: 'Poiret One', cursive;
+
+
+}
+body {
+    padding-left: 50px;
+
+}
+.page-header {
+    background-color: #000000;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+font-family: 'Poiret One', cursive;
+}
+
+.date {
+    float: right;
+    color: #002b54;
+font-family: 'Poiret One', cursive;
+    font-size:15pt;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+font-family: 'Poiret One', cursive;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #000000;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+font-family: 'Poiret One', cursive;
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+font-family: 'Poiret One', cursive;
+}
