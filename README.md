@@ -1,2 +1,0 @@
-# artofmemory
-MOTO sample webpage
