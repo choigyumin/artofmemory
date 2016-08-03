@@ -1,14 +1,6 @@
-    <html>
-        <head><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-            <title>artofmemory</title>
-        </head>
-        <body>
-<div>
-    <h1><a href="/">source board</a></h1>
+{% extends 'base.html' %}
 
-</div>
-
+{% block content %}
 {% for post in posts %}
     <div>
 
@@ -17,5 +9,5 @@
         <p>published: {{ post.created_date }}</p>
     </div>
 {% endfor %}
-        </body>
-    </html>
+
+{% endblock %}
