@@ -7,7 +7,7 @@ urlpatterns = [
     # url(r'^$', 'mysite.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
   	url(r'', include('AMGallery.urls')),
-  	url(r'', include('Source.urls')),
+  	url(r'^source/', include('Source.urls')),
 
 ]
 urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
