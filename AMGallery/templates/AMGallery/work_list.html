@@ -17,12 +17,12 @@
 {% for post in works %}
 <div class="post">
 
-    <a img src = "image" width ="800" height = "300" alt = "AMGallery work"></a>
-
-        <p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
-        <p>{{ post.text|linebreaksbr }}</p>
-        <p>published: {{ post.created_date }}</p>
-    </div>
+    <img src = "{{MEDIA_URL}}{{post.image}}" width ="800" height = "600" alt = "AMGallery work">
+    {{post.image}}
+    <p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
+    <p>{{ post.text|linebreaksbr }}</p>
+    <p>published: {{ post.created_date }}</p>
+</div>
 {% endfor %}
 {% endblock content %}
         </body>
