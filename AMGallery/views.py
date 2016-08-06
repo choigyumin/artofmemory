@@ -4,6 +4,10 @@ from .models import Work
 from django.shortcuts import render, get_object_or_404
 from .forms import postForm
 from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.contrib.auth.forms import UserCreationForm
+
 # Create your views here.
 def work_list(request):
 	works = Work.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
@@ -35,4 +39,24 @@ def post_edit(request, pk):
             return redirect('AMGallery.views.post_detail', pk=post.pk)
     else:
         form = postForm(instance=post)
-    return render(request, 'AMGallery/post_edit.html', {'form': form})   		
+    return render(request, 'AMGallery/post_edit.html', {'form': form})  
+
+
+def signup(request):
+    """signup
+    to register users
+    """
+    if request.method == "POST":
+        userform = UserCreationForm(request.POST)
+        if userform.is_valid():
+            userform.save()
+
+            return HttpResponseRedirect(
+                reverse("signup_ok")
+            )
+    elif request.method == "GET":
+        userform = UserCreationForm()
+
+    return render(request, "registration/signup.html", {
+        "userform": userform,
+}) 		
