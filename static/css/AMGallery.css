@@ -57,3 +57,14 @@ h1, h2, h3, h4 {
 .post h1 a, .post h1 a:visited {
     color: #000000;
 }
+
+.navbar-inner {
+    background: transparent;
+    padding: 0px 0px 0px 0px;
+    .mg {
+        color:transparent;
+    }
+}
+.nav.navbar-nav.navbar-center {
+    float: center;
+}
