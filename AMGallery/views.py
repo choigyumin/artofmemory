@@ -11,11 +11,11 @@ from django.contrib.auth.forms import UserCreationForm
 def work_list(request):
 	works = Work.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
 	return render(request, 'AMGallery/work_list.html', {'works':works})
-def post_detail(request, pk):
+def work_detail(request, pk):
     post = get_object_or_404(Work, pk=pk)
     return render(request, 'AMGallery/post_detail.html', {'post': post})
 
-def post_edit(request, pk):
+def work_edit(request, pk):
     post = get_object_or_404(Work, pk=pk)
     if request.method == "POST":
         form = postForm(request.POST, instance=post)
@@ -24,7 +24,7 @@ def post_edit(request, pk):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('AMGallery.views.post_detail', pk=post.pk)
+            return redirect('AMGallery.views.work_detail', pk=post.pk)
     else:
         form = postForm(instance=post)
     return render(request, 'AMGallery/post_edit.html', {'form': form})  

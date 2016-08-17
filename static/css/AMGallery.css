@@ -61,10 +61,4 @@ h1, h2, h3, h4 {
 .navbar-inner {
     background: transparent;
     padding: 0px 0px 0px 0px;
-    .mg {
-        color:transparent;
-    }
-}
-.nav.navbar-nav.navbar-center {
-    float: center;
 }
