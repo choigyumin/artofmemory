@@ -2,6 +2,9 @@
 
 {% block content %}
 
+
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 {% if form.errors %}
 <p>ID나 비밀번호가 일치하지 않습니다.</p>
 {% endif %}
@@ -124,5 +127,27 @@
 
 <div id="status">
 </div>
+
+<a id="kakao-login-btn"></a>
+<a href="http://alpha-developers.kakao.com/logout"></a>
+<script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('03d9d528955dcb471b5e45f211391c53');
+    // 카카오 로그인 버튼을 생성합니다.
+    Kakao.Auth.createLoginButton({
+      container: '#kakao-login-btn',
+      success: function(authObj) {
+        alert(JSON.stringify(authObj));
+      },
+      fail: function(err) {
+         alert(JSON.stringify(err));
+      }
+    });
+  //]]>
+</script>
+
+
+
 
 {% endblock %}
