@@ -7,7 +7,7 @@
 <div class="post">
 
     <img src = "{{MEDIA_URL}}{{post.image}}" alt = "AMGallery work">
-    <p>{{ post.title }}</a></p>
+    <p><a href="{% url 'gallery:work_detail' pk=post.pk %}">{{ post.title }}</a></p>
     <p>{{ post.text|linebreaksbr }}</p>
     <p>published: {{ post.created_date }}</p>
 </div>
