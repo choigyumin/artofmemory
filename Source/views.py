@@ -5,7 +5,6 @@ from .forms import postForm
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-# Create your views here.
 
 def post_list(request):
 	post = Post.objects.filter(created_date__lte=timezone.now()).order_by('created_date')

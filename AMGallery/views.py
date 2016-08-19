@@ -7,7 +7,6 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.forms import UserCreationForm
 
-# Create your views here.
 def work_list(request):
 	works = Work.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
 	return render(request, 'AMGallery/work_list.html', {'works':works})
