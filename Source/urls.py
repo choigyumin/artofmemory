@@ -3,7 +3,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-app_name = 'source'
+
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
 	url(r'^new/$', views.post_new, name='post_new'),
