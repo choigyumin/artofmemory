@@ -13,7 +13,7 @@ def work_list(request):
 	return render(request, 'AMGallery/work_list.html', {'works':works})
 def work_detail(request, pk):
     post = get_object_or_404(Work, pk=pk)
-    return render(request, 'AMGallery/post_detail.html', {'post': post})
+    return render(request, 'AMGallery/post_detail.html', {'post':post})
 
 def work_edit(request, pk):
     post = get_object_or_404(Work, pk=pk)
