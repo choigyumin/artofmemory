@@ -5,8 +5,12 @@ from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
-
+def logout(request):
+    logout(request)
+    return redirect('home')
 
 def signup(request):
     """signup

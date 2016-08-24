@@ -51,12 +51,22 @@
         <li id="logo"><a href="/#"><strong>로고자리</strong></a></li>     
         <li id="source"><a href="/gallery/">Output</a></li>
     </ul>
-
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/admin/">admin</a></li>
-      <li><a href="/accounts/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li><a href="/accounts/signup/"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
-    </ul>
+    <li><a href="/admin/">admin</a></li>
+    <li>
+      {% if user.is_authenticated %}
+      <a href="/acoounts/logout/"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+      {% else %}
+      <a href="/accounts/signup/"><span class="glyphicon glyphicon-user"></span>Sign Up</a>
+    </li>
+    <li>
+      <a href="/accounts/login/"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+      {% endif %}
+    </li>
+        </ul>
+
+
+
   </div>
 </nav>
 
