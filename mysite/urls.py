@@ -5,7 +5,7 @@ from django.conf import settings
 from django.contrib.auth.views import login, logout
 from .views import signup
 from django.views.generic import TemplateView
-fr
+
 
 urlpatterns = [
     # Examples:
