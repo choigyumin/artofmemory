@@ -14,7 +14,7 @@ urlpatterns = [
   	url(r'^gallery/', include('AMGallery.urls')),
   	url(r'^source/', include('Source.urls')),
   	url(r'^accounts/login/', login, name='login' ),
-    url(r'^accounts/logout/', logout, name='logout' ),
+    url(r'^accounts/logout/', logout, name='logout'),
     url(r'^accounts/signup/', signup, name='signup'),
     url(r'^signup_ok/$', TemplateView.as_view( \
         template_name='registration/signup_ok.html' \

@@ -10,7 +10,7 @@ from django.shortcuts import redirect
 
 def logout(request):
     logout(request)
-    return redirect('home')
+    return redirect('/')
 
 def signup(request):
     """signup
