@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'Source',
     'AMGallery',
+    'social.apps.django_app.default',
 
 )
 

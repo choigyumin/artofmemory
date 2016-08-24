@@ -8,6 +8,7 @@
         <p>{{ post.text|linebreaksbr }}</p>
         <p>published: {{ post.created_date }}</p>
     </div>
+<a href="{% url 'Source.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
 {% endfor %}
 
 {% if user.is_authenticated %}
