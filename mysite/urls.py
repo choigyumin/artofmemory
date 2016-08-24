@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.auth.views import login, logout
 from .views import signup
 from django.views.generic import TemplateView
+fr
 
 urlpatterns = [
     # Examples:
@@ -14,7 +15,7 @@ urlpatterns = [
   	url(r'^gallery/', include('AMGallery.urls')),
   	url(r'^source/', include('Source.urls')),
   	url(r'^accounts/login/', login, name='login' ),
-    url(r'^accounts/logout/', 'django.contrib.auth.views.logout',
+    url(r'^accounts/logout/', logout,
                       {'next_page': '/'}),
     url(r'^accounts/signup/', signup, name='signup'),
     url(r'^signup_ok/$', TemplateView.as_view( \
