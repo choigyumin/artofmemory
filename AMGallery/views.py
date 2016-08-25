@@ -46,7 +46,7 @@ def add_comment_to_work(request, pk):
     return render(request, 'AMGallery/add_comment_to_work.html', {'form': form})
 
 @login_required
-def comment_remove(request, pk):
+def output_comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     post_pk = comment.post.pk
     comment.delete()
