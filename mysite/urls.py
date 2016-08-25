@@ -1,3 +1,6 @@
+# Created by GyuminChoi
+# Last modified 2016.8.25
+
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls.static import static
