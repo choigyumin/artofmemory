@@ -1,3 +1,6 @@
+# Created by GyuminChoi
+# Last modified 2016.8.25
+
 from django.db import models
 from django.utils import timezone
 

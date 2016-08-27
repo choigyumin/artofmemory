@@ -1,3 +1,6 @@
+# Created by GyuminChoi
+# Last modified 2016.8.25
+
 from django.shortcuts import render
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404

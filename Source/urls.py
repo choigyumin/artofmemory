@@ -1,3 +1,6 @@
+# Created by GyuminChoi
+# Last modified 2016.8.25
+
 from django.conf.urls import url
 from . import views
 from django.conf import settings

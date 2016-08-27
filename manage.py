@@ -1,3 +1,6 @@
+# Created by GyuminChoi
+# Last modified 2016.8.25
+
 #!/usr/bin/env python
 import os
 import sys
