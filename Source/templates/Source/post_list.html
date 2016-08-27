@@ -4,7 +4,7 @@
 {% for post in post %}
     <div>
 
-        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <h1><a href="{% url 'Source.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         <p>{{ post.text|linebreaksbr }}</p>
         <p>published: {{ post.created_date }}</p>
     </div>
