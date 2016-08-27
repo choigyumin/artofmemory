@@ -7,7 +7,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^', views.work_list, name='work_list'),
+    url(r'^$', views.work_list, name='work_list'),
     url(r'^(?P<pk>[0-9]+)/$', views.work_detail, name='work_detail'),
 	url(r'^(?P<pk>[0-9]+)/edit/$', views.work_edit, name='work_edit'),
 	url(r'^post/(?P<pk>[0-9]+)/comment/$', views.add_comment_to_work, name='add_comment_to_work'),
