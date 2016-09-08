@@ -21,6 +21,7 @@ class Work(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey('AMGallery.Work', related_name='comments')
     author = models.CharField(max_length=200)
+    anonymous=models.BooleanField(default=False)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=True)
