@@ -42,6 +42,7 @@ def add_comment_to_work(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.author=request.user
             comment.save()
             return redirect('AMGallery.views.work_detail', pk=post.pk)
     else:
