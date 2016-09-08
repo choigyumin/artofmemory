@@ -53,7 +53,10 @@ def add_comment_to_post(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
-            comment.author=request.user
+            if comment.anonymous :
+                comment.author = "익명"
+            else :
+                comment.author=request.user
             comment.post = post
             comment.save()
             return redirect('Source.views.post_detail', pk=post.pk)
