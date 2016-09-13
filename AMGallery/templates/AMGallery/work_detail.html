@@ -8,7 +8,8 @@
                 {{ post.created_date }}
             </div>
         {% endif %}
-<a class="btn btn-default" href="{% url 'work_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'work_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'output_work_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         <h1>{{ post.title }}</h1>
         <img src = "/gallery/{{MEDIA_URL}}{{post.image}}" alt = "picture">
         <p>{{ post.text|linebreaksbr }}</p>
@@ -26,7 +27,7 @@
             {{ comment.created_date }}
 
             {% if user.is_superuser %}
-
+                <a class="btn btn-default" href="{% url 'comment_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                 <a class="btn btn-default" href="{% url 'output_comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                 {% endif %}
         </div>

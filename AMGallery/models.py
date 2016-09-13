@@ -7,6 +7,7 @@ from django.utils import timezone
 class Work(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
+    anonymous=models.BooleanField(default=False)
     image = models.FileField()
     text = models.TextField()
     created_date = models.DateTimeField(
