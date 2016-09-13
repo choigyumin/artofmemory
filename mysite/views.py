@@ -1,5 +1,6 @@
 # Created by GyuminChoi
 # Last modified 2016.8.25
+#-*- coding: utf-8 -*-
 
 from django.shortcuts import render
 from django.utils import timezone

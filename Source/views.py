@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 # Created by GyuminChoi
 # Last modified 2016.8.25
 
