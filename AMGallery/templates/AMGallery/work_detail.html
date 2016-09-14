@@ -8,8 +8,10 @@
                 {{ post.created_date }}
             </div>
         {% endif %}
+        {% if post.author == request.user or user.is_superuser %}
         <a class="btn btn-default" href="{% url 'work_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <a class="btn btn-default" href="{% url 'output_work_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        {% endif %}
         <h1>{{ post.title }}</h1>
         <img src = "/gallery/{{MEDIA_URL}}{{post.image}}" alt = "picture">
         <p>{{ post.text|linebreaksbr }}</p>
@@ -25,11 +27,10 @@
     <div class="comment">
         <div class="date">
             {{ comment.created_date }}
-
-            {% if user.is_superuser %}
+            {% if user.is_superuser or comment.author == request.user %}
                 <a class="btn btn-default" href="{% url 'comment_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                 <a class="btn btn-default" href="{% url 'output_comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                {% endif %}
+            {% endif %}
         </div>
         <strong>{{ comment.author }}</strong>
         <p>{{ comment.text|linebreaks }}</p>

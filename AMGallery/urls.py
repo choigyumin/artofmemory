@@ -1,5 +1,7 @@
+#-*- coding: utf-8 -*-
 # Created by GyuminChoi
-# Last modified 2016.8.25
+# modified 2016.8.25
+# modified 2016.9.14
 
 from django.conf.urls import url
 from . import views
