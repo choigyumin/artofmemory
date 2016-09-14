@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
+from machina import get_apps as get_machina_apps
+from machina import MACHINA_MAIN_TEMPLATE_DIR
+from machina import MACHINA_MAIN_STATIC_DIR
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -44,7 +47,13 @@ INSTALLED_APPS = (
     'AMGallery',
     'social.apps.django_app.default',
 
-)
+    # Machina related apps:
+    'mptt',
+    'haystack',
+    'widget_tweaks',
+    'pagedown',
+    'markdown',
+)  + tuple(get_machina_apps())
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,6 +64,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    # Machina
+    'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -62,7 +73,10 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,  'templates'),],
+        'DIRS': [
+            os.path.join(BASE_DIR,  'templates'),
+            MACHINA_MAIN_TEMPLATE_DIR,
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +85,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                # Machina
+                'machina.core.context_processors.metadata',
             ],
         },
     },
@@ -103,9 +119,39 @@ USE_L10N = True
 
 USE_TZ = True
 
+#cache (for machina)
+
+CACHES = {
+  'default': {
+    'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+  },
+  'machina_attachments': {
+    'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+    'LOCATION': '/tmp',
+  }
+}
+
+# HAYSTACK (for search function)
+
+HAYSTACK_CONNECTIONS = {
+  'default': {
+    'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+  },
+}
+
+HAYSTACK_CONNECTIONS = {
+  'default': {
+    'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+    'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+  },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+
+STATICFILES_DIRS = (
+  MACHINA_MAIN_STATIC_DIR,
+)
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

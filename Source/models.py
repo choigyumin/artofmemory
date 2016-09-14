@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class Post(models.Model):
-    author = models.ForeignKey('auth.User')
+    author = models.ForeignKey('auth.User', related_name='Post')
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(

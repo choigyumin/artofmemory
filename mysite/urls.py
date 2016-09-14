@@ -8,6 +8,7 @@ from django.conf import settings
 from django.contrib.auth.views import login, logout
 from .views import signup
 from django.views.generic import TemplateView
+from machina.app import board
 
 
 urlpatterns = [
@@ -17,6 +18,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
   	url(r'^gallery/', include('AMGallery.urls')),
   	url(r'^source/', include('Source.urls')),
+    # Apps
+    url(r'^forum/', include(board.urls)),
   	url(r'^accounts/login/', login, name='login' ),
     url(r'^accounts/logout/', logout,
                       {'next_page': '/'}),
